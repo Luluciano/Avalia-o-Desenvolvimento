@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="container">
+
+        <h2>Minhas Tarefas</h2>
+    
+    <input type="text" id="novoTitulo" placeholder="Nova tarefa...">
+    <button onclick="criarTarefa()">Adicionar</button>
+
+    <div style="margin: 20px 0;">
+        Filtro: 
+        <button onclick="carregarTarefas()">Todas</button>
+        <button onclick="carregarTarefas('pendente')">Pendentes</button>
+        <button onclick="carregarTarefas('concluida')">Concluídas</button>
+    </div>
+
+    <div id="lista"></div>
+
+    </div>
+    
+
+    <script src="tarefasFront.js"></script>
+    
+</body>
+</html>

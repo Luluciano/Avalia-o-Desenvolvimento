@@ -1,0 +1,16 @@
+CREATE TYPE nivel_urgencia AS ENUM ('BAIXA', 'MÉDIA', 'ALTA', 'CRÍTICA');
+
+CREATE TABLE pacientes (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    idade INTEGER NOT NULL,
+    urgencia nivel_urgencia NOT NULL,
+    chegada TIME NOT NULL DEFAULT CURRENT_TIME,
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO pacientes (nome, idade, urgencia, chegada) VALUES
+('Ana Souza', 30, 'CRÍTICA', '09:00'),
+('João Silva', 65, 'MÉDIA', '08:00'),
+('Enzo Oliveira', 15, 'MÉDIA', '08:05'),
+('Bia Santos', 25, 'ALTA', '07:30');

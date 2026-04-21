@@ -1,0 +1,8 @@
+ Análise Técnica - Pipeline Financeiro 
+1. Decisões de Tratamento Registros Órfãos: IDs de pedidos em entregas.csv que não existem em pedidos.csv foram descartados, pois não possuem base financeira para o relatório. Já pedidos sem entrega foram mantidos com o status "NÃO INICIADA". Normalização de Cidades: Utilizei a técnica de remoção de acentuação (Unicode Normalize) seguida de toUpperCase() para garantir que "São Paulo" e "são paulo" sejam agrupados corretamente. Valores Monetários: Usei regex para substituir a vírgula por ponto antes da conversão para Float, garantindo a precisão do Ticket Médio. 
+
+2. Idempotência Sim, o pipeline é idempotente. Como ele lê os arquivos de origem e sobrescreve o arquivo de saída (relatorio_consolidado.json), rodá-lo 1 ou 100 vezes com a mesma entrada produzirá exatamente o mesmo resultado, sem duplicar dados ou acumular erros, pipeline e feito para isso. 
+
+3. Escalabilidade (10 Milhões de Linhas) Se o volume chegasse a 10 milhões de linhas: Node.js Streams:  Eu não usaria  readFileSync  (que carrega tudo na RAM). Usaria Streams (módulo readline ou csv-parser) para processar linha por linha.  Banco de Dados Temporário: Em vez de mapas em memória, eu carregaria os CSVs para tabelas temporárias em um banco (PostgreSQL) e faria a consolidação via SQL JOIN, que é muito mais eficiente para grandes volumes. 
+
+4. Qualidade e Testes Escreveria testes unitários para: 1. A função de normalização de data (testando diversos formatos). 2. A função de cálculo de atraso (testando dias negativos e valores nulos). 3. Teste de integração verificando se um registro órfão é realmente ignorado.

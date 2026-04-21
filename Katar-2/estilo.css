@@ -1,0 +1,113 @@
+.concluida-verde {
+    color: #28a745 !important; /* Verde padrão de 'sucesso' */
+    text-decoration: line-through; /* Mantém o riscado se quiser */
+    font-weight: bold;
+}
+
+/* estilo.css */
+
+/* Centraliza o conteúdo na página inteira */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Container principal para os formulários e lista */
+.container {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px; /* Limita a largura para não espalhar muito */
+}
+
+/* Estilo do input e botão de adicionar */
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+}
+
+input[type="text"]:focus {
+    border-color: #28a745;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+    background-color: #007bff;
+    color: white;
+}
+
+button:hover {
+    filter: brightness(90%);
+}
+
+/* Estilo específico para os filtros */
+.filtros {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.filtros button {
+    background-color: #6c757d;
+    font-size: 0.8rem;
+}
+
+/* Estilo da Lista de Tarefas */
+.tarefa {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.tarefa:last-child {
+    border-bottom: none;
+}
+
+/* A CLASSE QUE VOCÊ PRECISA PARA O VERDE */
+.concluida-verde {
+    color: #28a745 !important;
+    text-decoration: line-through;
+    font-weight: bold;
+}
+
+/* Estilo para botões de ação dentro da tarefa */
+.acoes button {
+    margin-left: 5px;
+    padding: 5px 8px;
+}
+
+.btn-delete { background-color: #dc3545; }
+.btn-done { background-color: #28a745; }
+.btn-edit { background-color: #ffc107; color: #333; }
